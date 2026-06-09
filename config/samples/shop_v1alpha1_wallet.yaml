@@ -1,0 +1,11 @@
+apiVersion: shophub.io/v1alpha1
+kind: Wallet
+metadata:
+  name: demo-wallet
+  namespace: default
+spec:
+  blockchain: ethereum
+  network: testnet
+  secretRef:
+    name: demo-wallet-key
+    namespace: default
