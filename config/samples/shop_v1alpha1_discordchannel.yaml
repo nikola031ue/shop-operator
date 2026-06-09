@@ -1,0 +1,11 @@
+apiVersion: shophub.io/v1alpha1
+kind: DiscordChannel
+metadata:
+  name: demo-discord
+  namespace: default
+spec:
+  serverID: "123456789012345678"
+  channelName: shop-alerts
+  webhookSecretRef:
+    name: discord-bot-token
+    key: token

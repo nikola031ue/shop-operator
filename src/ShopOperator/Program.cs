@@ -9,7 +9,8 @@ builder.Services
     {
         settings.Name = "shop-operator";
     })
-    .AddController<ShopController, ShopEntity>();
+    .AddController<ShopController, ShopEntity>()
+    .AddController<DiscordChannelController, DiscordChannelEntity>();
 
 var app = builder.Build();
 

@@ -32,3 +32,35 @@ rules:
   - shops/finalizers
   verbs:
   - update
+- apiGroups:
+  - shophub.io
+  resources:
+  - discordchannels
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - shophub.io
+  resources:
+  - discordchannels/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - shophub.io
+  resources:
+  - discordchannels/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
