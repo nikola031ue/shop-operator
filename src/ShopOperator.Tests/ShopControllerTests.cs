@@ -22,19 +22,19 @@ public class ShopControllerTests
         string name = "test-shop",
         Availability availability = Availability.standard,
         DatabaseType dbType = DatabaseType.postgresql) => new()
-    {
-        Metadata = new V1ObjectMeta { Name = name, NamespaceProperty = "default" },
-        Spec = new ShopSpec
         {
-            Name = name,
-            Availability = availability,
-            WalletAddress = "0xabc",
-            DatabaseType = dbType,
-            Image = "shop:latest",
-            IngressHost = $"{name}.local",
-        },
-        Status = new ShopStatus(),
-    };
+            Metadata = new V1ObjectMeta { Name = name, NamespaceProperty = "default" },
+            Spec = new ShopSpec
+            {
+                Name = name,
+                Availability = availability,
+                WalletAddress = "0xabc",
+                DatabaseType = dbType,
+                Image = "shop:latest",
+                IngressHost = $"{name}.local",
+            },
+            Status = new ShopStatus(),
+        };
 
     [Fact]
     public async Task Reconcile_StandardAvailability_Creates2ReplicaDeployment()
