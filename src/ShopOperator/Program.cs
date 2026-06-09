@@ -1,8 +1,11 @@
 using KubeOps.Operator;
 using ShopOperator.Controllers;
 using ShopOperator.Entities;
+using ShopOperator.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient<IDiscordApiClient, DiscordApiClient>();
 
 builder.Services
     .AddKubernetesOperator(settings =>
