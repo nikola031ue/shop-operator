@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/ShopOperator.Tests/ShopOperator.Tests.csproj" />
     <Project Path="src/ShopOperator/ShopOperator.csproj" />
   </Folder>
 </Solution>

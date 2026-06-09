@@ -1,0 +1,12 @@
+apiVersion: shophub.io/v1alpha1
+kind: Shop
+metadata:
+  name: demo-shop
+  namespace: default
+spec:
+  name: demo-shop
+  availability: standard
+  walletAddress: "0x1234567890abcdef1234567890abcdef12345678"
+  databaseType: postgresql
+  image: shop-app:latest
+  ingressHost: demo-shop.local

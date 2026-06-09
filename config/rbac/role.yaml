@@ -6,6 +6,29 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
   name: manager-role
 rules:
-- apiGroups: [""]
-  resources: ["pods"]
-  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - shophub.io
+  resources:
+  - shops
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - shophub.io
+  resources:
+  - shops/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - shophub.io
+  resources:
+  - shops/finalizers
+  verbs:
+  - update
