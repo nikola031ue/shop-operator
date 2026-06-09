@@ -59,8 +59,36 @@ rules:
   verbs:
   - update
 - apiGroups:
+  - shophub.io
+  resources:
+  - wallets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - shophub.io
+  resources:
+  - wallets/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - shophub.io
+  resources:
+  - wallets/finalizers
+  verbs:
+  - update
+- apiGroups:
   - ""
   resources:
   - secrets
   verbs:
   - get
+  - create
+  - update
