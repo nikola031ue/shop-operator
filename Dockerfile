@@ -1,13 +1,14 @@
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS builder
-WORKDIR /workspace
-COPY . .
-RUN dotnet publish src/ShopOperator/ShopOperator.csproj \
-    -c Release \
-    -o /app \
-    --no-self-contained
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
 
-FROM mcr.microsoft.com/dotnet/aspnet:9.0-jammy-chiseled
+COPY src/ShopOperator/ShopOperator.csproj ShopOperator/
+RUN dotnet restore ShopOperator/ShopOperator.csproj
+
+COPY src/ShopOperator/ ShopOperator/
+RUN dotnet publish ShopOperator/ShopOperator.csproj -c Release -o /app --no-restore
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
-COPY --from=builder /app .
+COPY --from=build /app .
 USER app
-ENTRYPOINT ["./ShopOperator"]
+ENTRYPOINT ["dotnet", "ShopOperator.dll"]
