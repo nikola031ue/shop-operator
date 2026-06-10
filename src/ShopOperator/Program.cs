@@ -6,6 +6,7 @@ using ShopOperator.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpClient<IDiscordApiClient, DiscordApiClient>();
+builder.Services.AddSingleton<IWalletGenerator, EthereumWalletGenerator>();
 
 builder.Services
     .AddKubernetesOperator(settings =>
